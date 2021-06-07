@@ -3,7 +3,6 @@ using DevFitness.Applictation.Models.ViewModels;
 using DevFitness.Domain.Entities;
 using DevFitness.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 

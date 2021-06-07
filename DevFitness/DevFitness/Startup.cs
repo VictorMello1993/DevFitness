@@ -1,6 +1,9 @@
+using DevFitness.API.Filters;
+using DevFitness.Applictation.Validators;
 using DevFitness.Domain.Repositories;
 using DevFitness.Infrastructure.Persistence;
 using DevFitness.Infrastructure.Repositories;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,11 +26,14 @@ namespace DevFitness
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Banco de dados - SQL Server
             var connectionString = Configuration.GetConnectionString("DevFitnessSQLServer");
-
             services.AddDbContext<DevFitnessDbContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddControllers();
+            //Validações com Fluent Validation
+            services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter))) 
+                    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserValidator>()); 
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DevFitness", Version = "v1" });

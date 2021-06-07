@@ -3,7 +3,6 @@ using DevFitness.Applictation.Models.ViewModels;
 using DevFitness.Domain.Entities;
 using DevFitness.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -69,23 +68,6 @@ namespace DevFitness.API.Controllers
             await _userRepository.SaveChangesAsync();
 
             return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task <IActionResult> Delete(int id)
-        {
-            var user = await _userRepository.GetByIdAsync(id);
-
-            if(user == null)
-            {
-                return NotFound();
-            }
-
-            user.Deactivate();
-
-            await _userRepository.SaveChangesAsync();
-
-            return NoContent();
-        }
+        }        
     }
 }
