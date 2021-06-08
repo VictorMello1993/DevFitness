@@ -1,7 +1,8 @@
 # DevFitness
 API de gerenciamento dos dados de saúde e alimentação do usuário - Jornada .NET Direto ao Ponto
 
-<ul><h2>Conteúdos abordados</h2>
+<h2> Conteúdos abordados</h2>
+<ul>
   <li>API</li>
   <li>Protocolo HTTP</li>
   <li>Padrão REST</li>  
@@ -14,8 +15,8 @@ API de gerenciamento dos dados de saúde e alimentação do usuário - Jornada .
 
 ---
 
-<ol><h2>Melhorias</h2>
-  <li> Incluir a validação da API com Fluent Validation</li>
-  <li> Incluir a propriedade de navegação para listar as refeições ao consultar usuário</li>
-  <li> Incluir o controle das informações pelo cache</li>
-<ol>
+## Melhorias
+- [x] Incluir a validação da API com Fluent Validation
+- [ ] Incluir a propriedade de navegação para listar as refeições ao consultar usuário
+- [ ] Incluir o controle das informações pelo cache
+ 
